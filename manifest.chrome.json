@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "mt-md",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA06+WaKjOaswggNwALUgqzJrNYB+1Juer6uALFPL34Wmg09Fk0OIlPUlfmOOZNE/tGRt9vB9dve12l1QqrFukJZSJ2gHKjxTbNrGWfOVGpEmPFusTqtiaoaAuLkT68Rl5XB2DzCm+F/dlnF5qtXdU67QDz5L+TUGfk4PoarC7HO9L4RgfVE1fwB317bIr5z6deTKeNr37ILc/TNjCbjm82IAE66voLAMwF0U3S2kr56/GpfB3WTG4h+VUFI1HGi9aK/UXqYdZ87nqePKuToD8PYiwn26BMQignppDqGuTXzoycpffRJZN77k9EpV7yuH6RXy3C9SxRyW+LyrYgrRA0wIDAQAB",
   "description": "Renders Markdown (.md) files as professional documents",
   "content_scripts": [
