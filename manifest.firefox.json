@@ -1,0 +1,72 @@
+{
+  "manifest_version": 3,
+  "name": "mt-md",
+  "version": "0.5.0",
+  "description": "Renders Markdown (.md) files as professional documents",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "mt-md@browser-ext",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "file:///*/*.md",
+        "http://localhost/*.md",
+        "http://127.0.0.1/*.md",
+        "http://[::1]/*.md"
+      ],
+      "js": [
+        "mt-md-mermaid.js",
+        "mt-md-graphviz.js",
+        "mt-md-vega.js",
+        "mt-md-infographic.js",
+        "mt-md-drawio.js",
+        "mt-md.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_title": "mt-md",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab",
+    "downloads"
+  ],
+  "background": {
+    "scripts": [
+      "mt-md-background.js"
+    ]
+  },
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*",
+    "file:///*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

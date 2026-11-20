@@ -1,0 +1,114 @@
+@page {
+  size: A4;
+  margin: 20mm 18mm;
+}
+
+@media print {
+  /* Always print on white with the light palette, whatever the screen theme. */
+  html:root {
+    --mt-color-bg: #ffffff;
+    --mt-color-text: #111111;
+    --mt-color-accent: #1d4ed8;
+    --mt-color-border: #cbd5e1;
+    --mt-color-code-bg: #f8fafc;
+    --mt-tok-comment: #6a737d;
+    --mt-tok-punctuation: #24292e;
+    --mt-tok-number: #005cc5;
+    --mt-tok-string: #032f62;
+    --mt-tok-operator: #d73a49;
+    --mt-tok-keyword: #d73a49;
+    --mt-tok-function: #6f42c1;
+    --mt-tok-regex: #032f62;
+    --mt-font-body: Georgia, "Times New Roman", serif;
+    --mt-font-heading: "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  html, body, #mt-md-root {
+    background: #ffffff !important;
+    color: #111111;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  #mt-md-root { font-size: 11pt; line-height: 1.5; min-height: 0; }
+  #mt-md-root .mt-md-doc { max-width: none; margin: 0; padding: 0; }
+
+  /* Hide extension UI. */
+  #mt-md-toolbar,
+  #mt-md-settings,
+  #mt-md-toast,
+  #mt-md-toc .mt-md-toc-toggle,
+  #mt-md-toc .mt-md-files,
+  #mt-md-toc.mt-md-toc-filesonly,
+  #mt-md-root .mt-md-copy,
+  #mt-md-root .mt-md-raw-view { display: none !important; }
+
+  /* Front matter as a header block. */
+  #mt-md-root .mt-md-header { break-after: avoid; margin-bottom: 18pt; }
+
+  /* Printed table of contents with page numbers (target-counter where supported). */
+  #mt-md-toc {
+    position: static !important;
+    display: block !important;
+    width: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border: none !important;
+    margin: 0 0 18pt;
+    padding: 0 0 12pt;
+    border-bottom: 1px solid var(--mt-color-border) !important;
+  }
+
+  #mt-md-toc.mt-md-toc-hidden { display: block !important; }
+  #mt-md-toc.mt-md-toc-filesonly.mt-md-toc-hidden { display: none !important; }
+  #mt-md-toc::before {
+    content: "Contents";
+    display: block;
+    font: 600 14pt var(--mt-font-heading);
+    margin-bottom: 8pt;
+  }
+  #mt-md-toc ul { display: block !important; list-style: none; margin: 0; padding: 0; }
+  #mt-md-root #mt-md-toc a,
+  #mt-md-root #mt-md-toc a.mt-md-toc-active { color: inherit; text-decoration: none; font-weight: normal; }
+  #mt-md-toc a::after { content: leader(".") target-counter(attr(href), page); }
+
+  #mt-md-root .mt-md-article h1,
+  #mt-md-root .mt-md-article h2,
+  #mt-md-root .mt-md-article h3,
+  #mt-md-root .mt-md-article h4 { break-after: avoid; }
+
+  /* Never break inside code, diagrams, tables, callouts. */
+  #mt-md-root .mt-md-codeblock,
+  #mt-md-root pre,
+  #mt-md-root .mt-md-diagram,
+  #mt-md-root .mt-md-math-display,
+  #mt-md-root tr,
+  #mt-md-root img,
+  #mt-md-root blockquote,
+  #mt-md-root .mt-admonition { break-inside: avoid; }
+  #mt-md-root pre { white-space: pre-wrap; word-break: break-word; }
+
+  /* Tall tables may split between rows (header repeats); small ones stay whole. */
+  #mt-md-root table { break-inside: auto; }
+  #mt-md-root thead { display: table-header-group; }
+
+  /* Fixed line height so the line-number gutter stays aligned with the code across pages. */
+  #mt-md-root .mt-md-article pre,
+  #mt-md-root .mt-md-article pre code,
+  #mt-md-root .mt-md-article pre code *,
+  #mt-md-root .mt-md-article .line-numbers-rows { font-size: 9pt; line-height: 12pt; }
+  #mt-md-root pre.line-numbers,
+  #mt-md-root pre.line-numbers > code { white-space: pre; overflow: hidden; }
+
+  /* Mermaid measures its labels in the screen font; keep that font in print or labels clip. */
+  #mt-md-root .mt-md-diagram { font-family: "Segoe UI", system-ui, sans-serif; }
+
+  /* Graphviz output is dark-mode inverted on screen only. */
+  .mt-md-dark #mt-md-root .mt-md-diagram[data-mt-diagram="graphviz"] svg { filter: none; }
+  #mt-md-root .mt-md-diagram svg { max-width: 100%; height: auto; }
+
+  /* Collapsed sections are opened for printing by content.js (beforeprint). */
+  #mt-md-root .mt-md-math-display { overflow: visible; }
+
+  #mt-md-root a { color: inherit; text-decoration: underline; }
+}

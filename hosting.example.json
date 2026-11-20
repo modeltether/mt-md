@@ -1,0 +1,4 @@
+{
+  "baseUrl": "https://example.com/ext",
+  "publishTarget": "user@host:/var/www/ext/"
+}

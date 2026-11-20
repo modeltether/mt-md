@@ -1,0 +1,29 @@
+:root {
+  color-scheme: dark; /* scrollbars and form controls follow the chosen theme, not the browser's raw-text page */
+  --mt-font-body: "Segoe UI", system-ui, sans-serif;
+  --mt-font-code: "Cascadia Code", "Fira Code", monospace;
+  --mt-font-heading: var(--mt-font-body);
+
+  --mt-color-bg: #14142b;
+  --mt-color-text: #e2e8f0;
+  --mt-color-accent: #60a5fa;
+  --mt-color-border: #334155;
+  --mt-color-code-bg: #1e1e3f;
+
+  --mt-max-width: 980px;
+
+  --mt-note: #60a5fa;
+  --mt-warning: #fbbf24;
+  --mt-tip: #34d399;
+  --mt-important: #a78bfa;
+  --mt-caution: #f87171;
+
+  --mt-tok-comment: #8b949e;
+  --mt-tok-punctuation: #c9d1d9;
+  --mt-tok-number: #79c0ff;
+  --mt-tok-string: #a5d6ff;
+  --mt-tok-operator: #ff7b72;
+  --mt-tok-keyword: #ff7b72;
+  --mt-tok-function: #d2a8ff;
+  --mt-tok-regex: #a5d6ff;
+}

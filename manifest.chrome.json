@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "mt-md",
+  "version": "0.5.0",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA06+WaKjOaswggNwALUgqzJrNYB+1Juer6uALFPL34Wmg09Fk0OIlPUlfmOOZNE/tGRt9vB9dve12l1QqrFukJZSJ2gHKjxTbNrGWfOVGpEmPFusTqtiaoaAuLkT68Rl5XB2DzCm+F/dlnF5qtXdU67QDz5L+TUGfk4PoarC7HO9L4RgfVE1fwB317bIr5z6deTKeNr37ILc/TNjCbjm82IAE66voLAMwF0U3S2kr56/GpfB3WTG4h+VUFI1HGi9aK/UXqYdZ87nqePKuToD8PYiwn26BMQignppDqGuTXzoycpffRJZN77k9EpV7yuH6RXy3C9SxRyW+LyrYgrRA0wIDAQAB",
+  "description": "Renders Markdown (.md) files as professional documents",
+  "content_scripts": [
+    {
+      "matches": [
+        "file:///*/*.md",
+        "http://localhost/*.md",
+        "http://127.0.0.1/*.md",
+        "http://[::1]/*.md"
+      ],
+      "js": [
+        "mt-md-mermaid.js",
+        "mt-md-graphviz.js",
+        "mt-md-vega.js",
+        "mt-md-infographic.js",
+        "mt-md-drawio.js",
+        "mt-md.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_title": "mt-md",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab",
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "mt-md-background.js"
+  },
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

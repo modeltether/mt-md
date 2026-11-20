@@ -1,0 +1,48 @@
+{
+  "name": "mt-md",
+  "version": "0.5.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "lint": "for f in src/*.js; do node --check \"$f\"; done",
+    "test": "npm run package --silent && node --test test/",
+    "gate": "npm run lint && npm run licenses && npm run listing && npm test",
+    "package": "npm run build && node scripts/package.mjs",
+    "release": "node scripts/listing.mjs --require-current && npm run e2e && npm run package && node scripts/release.mjs",
+    "cws": "node scripts/cws.mjs",
+    "release:store": "node scripts/listing.mjs --require-current && npm run package && npm run e2e && node scripts/cws.mjs release",
+    "e2e": "node scripts/e2e.mjs",
+    "preflight": "npm run gate && npm run e2e",
+    "playground": "node playground/serve.mjs",
+    "playground:live": "node playground/live.mjs",
+    "sign:firefox": "node scripts/sign-firefox.mjs",
+    "licenses": "node scripts/third-party-notices.mjs --check",
+    "listing": "node scripts/listing.mjs",
+    "listing:confirm": "node scripts/listing.mjs --confirm",
+    "store:assets": "node scripts/store-assets.mjs",
+    "e2e:firefox": "node scripts/e2e-firefox.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "jsdom": "^26.1.0"
+  },
+  "dependencies": {
+    "@antv/infographic": "^0.2.20",
+    "@hpcc-js/wasm-graphviz": "^1.29.2",
+    "@maxgraph/core": "^0.25.1",
+    "dompurify": "^3.2.0",
+    "katex": "^0.16.47",
+    "markdown-it": "^14.3.2",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-sub": "^2.0.0",
+    "markdown-it-sup": "^2.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "mermaid": "^12.1.0",
+    "prismjs": "^1.30.0",
+    "vega": "^6.4.0",
+    "vega-interpreter": "^2.3.2",
+    "vega-lite": "^6.5.0"
+  }
+}

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+build/
+release/
+hosting.json
+.claude/
+.mcp.json
+__pycache__/
+*.pyc
+*.kate-swp

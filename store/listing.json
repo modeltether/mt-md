@@ -1,0 +1,110 @@
+{
+  "reviewedFor": "0.5.0",
+  "name": "mt-md",
+  "summary": "Renders Markdown (.md) files as clean documents: diagrams, math, file browser, auto-reload, themes, print layout and image bundles.",
+  "category": "Productivity > Tools",
+  "catalog": "Renders Markdown (.md) files in the browser: diagrams, math, a file browser, auto-reload, print layout and one-file image bundles.",
+  "description": {
+    "intro": "mt-md turns any Markdown file you open in the browser into a readable, professional document.",
+    "features": [
+      {
+        "text": "GitHub-style Markdown: tables, task lists, footnotes, callouts, collapsible sections, and a front-matter title block with a status badge",
+        "covers": [
+          "callouts"
+        ]
+      },
+      {
+        "text": "Syntax highlighting with line numbers and highlighted lines",
+        "covers": [
+          "highlight"
+        ]
+      },
+      {
+        "text": "Mermaid (with mind maps), Graphviz, Vega charts, draw.io, JSON Canvas and infographics drawn inline from code blocks, and an image viewer",
+        "covers": [
+          "diagrams"
+        ]
+      },
+      {
+        "text": "Math with $...$ and $$...$$, using a bundled math font so equations look the same on every computer",
+        "covers": [
+          "math"
+        ]
+      },
+      {
+        "text": "A contents panel that follows your place, and a Files panel that lists the document's folder so you can move between documents (with Up and Back)",
+        "covers": [
+          "toc",
+          "files"
+        ]
+      },
+      {
+        "text": "Light, dark or system theme, chosen with one three-way button and remembered",
+        "covers": [
+          "theme"
+        ]
+      },
+      {
+        "text": "Auto-reload: the page updates when the file changes, keeping your place (local files and localhost)",
+        "covers": [
+          "autoreload"
+        ]
+      },
+      {
+        "text": "Export what you are reading as a file you can share or keep: Markdown with its pictures embedded, a web page, or a document for your word processor or e-book reader. It saves to Downloads, a folder inside it, or wherever you choose",
+        "covers": [
+          "bundle"
+        ]
+      },
+      {
+        "text": "Edit: open a local file in VS Code (or another editor you choose) straight from the page",
+        "covers": [
+          "edit"
+        ]
+      },
+      {
+        "text": "Print and PDF layout with page breaks that respect code, tables and diagrams",
+        "covers": [
+          "print"
+        ]
+      },
+      {
+        "text": "A small toolbar you control: Settings lets you choose which tools stay on it; raw view and Copy (HTML code, formatted text for pasting into a document, Markdown source or plain text) are there too",
+        "covers": [
+          "raw",
+          "copy"
+        ]
+      },
+      {
+        "text": "A set-up page after install that checks, live, whether local files are allowed and how to allow them, with an optional list of the only folders it should render documents in",
+        "covers": [
+          "setup"
+        ]
+      },
+      {
+        "text": "Theme styles: Catppuccin, Solarized and Rosé Pine, each with light and dark, plus your own from a small JSON file that you can edit, copy and sync between your devices (the popup can copy a prompt for your AI assistant to write one)",
+        "covers": [
+          "themes"
+        ]
+      },
+      {
+        "text": "Keyboard shortcuts (T theme, C contents, F files, R raw, J and K between headings, ? for the list) that never touch your browser's own keys and can be changed or switched off, and arrow-key navigation in the Files panel; page width, text size, spacing and font choices",
+        "covers": [
+          "keys"
+        ]
+      }
+    ],
+    "privacy": "Everything runs locally in the page. mt-md itself makes no network requests and collects no data (images and other things a document points at load from wherever they point); it only remembers your settings and your last two document addresses on your own device. For local files it can also read an optional mt-md-theme.css from the same folder to restyle the document. If you switch on theme sync in the popup, your own themes are copied between your devices by your browser's built-in sync; mt-md itself sends nothing. A \"Feedback\" link in Settings and in the popup opens, by default, the project's issue page on GitHub in a new tab, only if you click it (in Settings you can point Feedback at the project's email address or at a link or address of your own instead); the Feedback link pre-fills only the mt-md version, the browser name and the kind of page (local file, localhost or website), and nothing is sent until you submit the issue or send the message yourself.",
+    "access": "Local files and localhost work once your browser allows it: after install, mt-md opens a short set-up page that shows how (the switch is called \"Allow access to file URLs\" in Chrome and Firefox) and lets you limit where it renders documents to certain folders if you prefer (the browser's file switch itself covers all files). Any other website stays off until you open a .md page there, click the toolbar icon and choose \"Allow this site\" (or \"Allow all sites\"); you can remove sites again in the same popup. A local .md page shown inside a frame on another local page is rendered too, compactly, with its toolbar, settings and contents."
+  },
+  "singlePurpose": "Display Markdown (.md) files as formatted documents.",
+  "justifications": {
+    "storage": "Remembers the reader's own settings on their device (theme, which tools are on the toolbar, editor choice, auto-reload on or off, the Files panel's open folders, and the addresses of the last two documents read, for the Back button, and the optional list of folders to render). Nothing is sent anywhere.",
+    "hostPermissions": "The extension replaces the raw text of a Markdown page with a rendered document. It runs without asking only on local files (file:///*/*.md) and localhost / 127.0.0.1 / [::1] .md pages. It also runs in frames on those same local pages, so a local .md guide can be shown inside a local page; no other frames are touched. Every other website is an optional host permission: the user clicks the toolbar icon and chooses \"Allow this site\" (or \"Allow all sites\"), and only then does the browser grant access to .md pages on that host; the user can remove it again. It reads that page's own text, and for the Files panel the folder listing page of the same site, and makes no network requests of its own.",
+    "downloads": "Saves the files the reader exports (Export on the toolbar) into a folder inside their Downloads folder, or through the browser's Save as dialog, when they choose that in Settings. It only saves what the reader exports, only below Downloads, and reads nothing from the download history.",
+    "activeTab": "Lets the popup read the address of the tab the user is looking at, and render that one page once (\"Render once\"), without granting a permanent site.",
+    "scripting": "Registers the content script for the sites the user has allowed, and injects it for \"Render once\".",
+    "remoteCode": "No. All code, including the Mermaid, Graphviz (WebAssembly), Vega, draw.io and infographic renderers, is bundled in the package.",
+    "dataUsage": "Collects none; tick no data categories. Certify that data is not sold, not used for unrelated purposes and not used for creditworthiness or lending."
+  }
+}

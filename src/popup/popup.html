@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>mt-md</title>
+<!-- The viewer's CSS, the theme and the shared control styles (ui.css) are applied by look.js, as on the set-up page. -->
+<style>
+body{width:340px}
+#mt-md-root{font-size:14px;line-height:1.45;min-height:0}
+main{padding:12px 14px 14px}
+h1{font-size:19px;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+h1 img{width:48px;height:48px}
+h1 .ver{font-size:12px;font-weight:400;color:var(--ui-mut);align-self:flex-end;margin-bottom:6px}
+.card{margin:10px 0;padding:2px 12px 10px}
+.card h2{font-size:15px;margin:8px 0 4px}
+.card h3{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--ui-mut);margin:12px 0 0}
+.card p{margin:6px 0}
+.card button{padding:6px 12px}
+.card button.primary{width:100%;padding:8px 12px}
+.row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}
+ul{list-style:none;margin:6px 0 0;padding:0}
+li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 0;border-top:1px solid var(--mt-color-border);font-size:13px}
+li button{padding:2px 8px;margin:0}
+li.builtin{flex-direction:column;align-items:flex-start;gap:0}
+li.none{color:var(--ui-mut)}
+ol.steps{margin:6px 0 6px 1.2em;padding:0;color:var(--ui-mut);font-size:13px}
+#foot{display:flex;justify-content:flex-start;gap:14px;align-items:center;margin-top:10px;font-size:12px}
+#foot [hidden]{display:none}
+#feedback{display:inline-flex;align-items:center;gap:6px;color:var(--ui-mut);text-decoration:none}
+#feedback:hover{color:var(--mt-color-text);text-decoration:underline}
+#foot button{padding:2px 8px;font-size:11.5px;border-radius:8px;border:1px solid var(--mt-color-border);background:var(--mt-color-bg);color:var(--mt-color-text);cursor:pointer}
+#themes summary{cursor:pointer;font-size:13px;padding:8px 0 2px}
+#themes .acts{display:inline-flex;gap:4px}
+#syncrow{font-size:12px;margin-top:8px}
+#themes p{font-size:12px;color:var(--ui-mut)}
+#paste{height:56px;min-height:0;margin-top:8px;font-size:11.5px;resize:vertical}
+#msg{min-height:1.2em;color:var(--ui-mut);font-size:12px;margin-top:6px}
+</style></head>
+<body><main id="mt-md-root">
+  <h1><img src="icons/icon-128.png" alt="">mt-md <span class="ver" id="ver"></span></h1>
+  <section class="card" id="page"><h2>This page</h2><div id="view"></div></section>
+  <section class="card" id="local"><h2>Local files <span class="pill" id="status"></span></h2><div id="localbody"></div></section>
+  <section class="card" id="sites"><h2>Websites</h2>
+    <p>Local servers (<code>localhost</code>) work straight away. For any other website, open a <code>.md</code> page there and choose <b>Allow this site</b> or <b>Allow all sites</b>. You can remove either here.</p>
+    <h3>Where mt-md works</h3><ul id="list"></ul></section>
+  <details class="card" id="themes"><summary>Themes: add your own, or copy a prompt for your AI</summary>
+    <p>Add your own light and dark theme as a small JSON file. Choose it from the gear next to Theme in the page's Settings.</p>
+    <div class="row"><button id="copyprompt" type="button" title="Copy a prompt to give your own AI assistant; it replies with a theme file">Copy prompt for your AI</button><button id="pickfile" type="button">Upload theme file…</button><input id="file" type="file" accept=".json,application/json" hidden></div>
+    <textarea id="paste" placeholder="…or paste the theme JSON here" aria-label="Theme JSON"></textarea>
+    <div class="row"><button id="addtheme" type="button">Add pasted theme</button></div>
+    <ul id="customlist"></ul>
+    <label id="syncrow" hidden><input id="sync" type="checkbox"> Sync my themes across my devices <span class="tag">(uses your browser's own sync, if it is on)</span></label>
+  </details>
+  <div id="msg" role="status"></div>
+  <div id="foot" hidden><a id="feedback" hidden>Feedback</a></div>
+</main><script src="mt-md-popup.js"></script></body></html>

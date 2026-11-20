@@ -1,0 +1,21 @@
+/* Controls shared by the set-up page and the toolbar popup. Colours come only from the viewer's theme variables (see look.js),
+   so both follow the chosen theme style and light/dark/system exactly like a rendered document. */
+:root { --ui-mut: color-mix(in srgb, var(--mt-color-text) 65%, transparent); }
+body { margin: 0; background: var(--mt-color-bg); color: var(--mt-color-text); }
+[hidden] { display: none !important; }
+.card { border: 1px solid var(--mt-color-border); background: var(--mt-color-code-bg); border-radius: 12px; padding: 4px 16px 12px; margin: 16px 0; }
+#mt-md-root .card h2 { margin: 12px 0 6px; }
+.card > :last-child { margin-bottom: 0; }
+.pill { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 13px; font-weight: 600; border: 1px solid currentColor; vertical-align: middle; }
+.pill.yes { color: var(--mt-tip); }
+.pill.no { color: var(--mt-warning); }
+.pill.unknown { color: var(--ui-mut); }
+.card button, .card .btn { font: inherit; cursor: pointer; border-radius: 8px; border: 1px solid var(--mt-color-border); background: var(--mt-color-bg); color: var(--mt-color-text); padding: 7px 14px; margin: 4px 6px 4px 0; }
+.card button.primary { background: var(--mt-color-accent); color: var(--mt-color-bg); border-color: transparent; font-weight: 600; }
+.card button.link { background: none; border: none; color: var(--ui-mut); text-decoration: underline; padding: 4px 0; }
+textarea { width: 100%; box-sizing: border-box; min-height: 5.5em; font: 14px/1.4 var(--mt-font-code); background: var(--mt-color-bg); color: var(--mt-color-text); border: 1px solid var(--mt-color-border); border-radius: 8px; padding: 8px; }
+label { display: block; margin: 4px 0; }
+.msg { min-height: 1.3em; font-size: 14px; color: var(--ui-mut); }
+.msg:empty { display: none; }
+.host { font-weight: 600; overflow-wrap: anywhere; }
+.tag { color: var(--ui-mut); font-size: .85em; }

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Set up mt-md</title>
+<!-- The viewer's CSS, the theme and the shared control styles (ui.css) are applied by look.js. -->
+<style>
+.ver{font-size:13px;font-weight:400;opacity:.65}
+h1.mt-md-title{display:flex;align-items:center;gap:12px}
+h1 img{width:56px;height:56px}
+.hint{font-size:.85em;opacity:.8;margin:.4em 0}
+.pill{margin-left:6px}
+.disclaimer{font-size:.85rem;opacity:.8}
+</style></head>
+<body><div id="mt-md-root"><div class="mt-md-doc"><div class="mt-md-article">
+  <h1 class="mt-md-title"><img src="icons/icon-128.png" alt="">Set up mt-md <span class="ver" id="ver"></span></h1>
+  <!--slot:intro-->
+
+  <section class="card" id="local">
+    <!--slot:local-->
+    <p><span class="pill" id="status"></span></p>
+    <div id="why"><!--slot:local-why--></div>
+    <div id="fix" hidden>
+      <ol id="steps"></ol>
+      <button class="primary" id="open-settings" hidden>Open mt-md's settings page</button>
+      <button id="recheck">Check again</button>
+      <button class="link" id="dismiss">I don't need local files</button>
+      <p class="msg" id="fixmsg" role="status"></p>
+    </div>
+    <div id="done" hidden><!--slot:local-done--></div>
+  </section>
+
+  <section class="card" id="folders">
+    <!--slot:folders-->
+    <label><input type="radio" name="mode" value="all"> Every local .md file</label>
+    <label><input type="radio" name="mode" value="only"> Render only these folders:</label>
+    <p class="hint">This limits where mt-md <em>renders</em> documents. It is not an access limit: the Files panel can still list the names of files and folders anywhere on this computer, and the browser's file permission is all-or-nothing.</p>
+    <textarea id="list" placeholder="/home/me/notes&#10;C:\Users\me\Documents\docs" spellcheck="false"></textarea>
+    <div><button class="primary" id="save">Save</button></div>
+    <p class="msg" id="foldermsg" role="status"></p>
+  </section>
+
+  <section class="card"><!--slot:websites--></section>
+  <!--slot:tips-->
+  <hr>
+  <div class="disclaimer"><!--slot:disclaimer--></div>
+</div></div></div><script src="mt-md-welcome.js"></script></body></html>

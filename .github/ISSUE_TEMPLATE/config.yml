@@ -1,0 +1,2 @@
+# Keep blank issues on: the extension's Feedback link opens a new issue with the text already filled in, which skips this chooser.
+blank_issues_enabled: true
